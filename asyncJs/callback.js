@@ -33,3 +33,15 @@ function addBook(book, callback) {
 }
 
 addBook({name: 'The Great Gatsby', author: 'F. Scott Fitzgerald'} , listBooks);
+
+let x = 5 
+console.log('step1 ', x);
+
+setTimeout(() => {
+    x = x + 15
+    console.log('step2 ', x);
+}, 4000)
+
+x = x + 15
+
+console.log('step3 ', x);
