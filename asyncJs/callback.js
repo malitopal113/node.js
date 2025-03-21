@@ -16,7 +16,7 @@ const func2 = () => {
 */
 
 
-let bookList = [
+/* let bookList = [
     {name: 'white fang', author: 'jack london'},
     {name: '1984', author: 'george orwell'},
     {name: 'Les Miserables', author: 'victor hugo'},
@@ -45,3 +45,31 @@ setTimeout(() => {
 x = x + 15
 
 console.log('step3 ', x);
+
+*/
+
+let bookList = [
+  {name: 'white fang', author: 'jack london'},
+  {name: '1984', author: 'george orwell'},
+  {name: 'Les Miserables', author: 'victor hugo'},
+]
+
+const listBooks = () => {
+  bookList.map( book => console.log(book.name));
+}
+
+const addBook = (book) => {
+  bookList.push(book);
+  
+}
+
+const showBooks = async () => {
+    try {
+      await addBook({name: 'The Great Gatsby', author: 'F. Scott Fitzgerald'});
+      listBooks();
+    } 
+    catch (error) {
+      console.log(error);     
+    }
+}
+showBooks();
