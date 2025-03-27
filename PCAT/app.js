@@ -1,6 +1,17 @@
 const express = require('express');
+const ejs = require('ejs');
 const app = express();
-const path = require('path');
+
+//const path = require('path');
+
+//template engine
+app.set('view engine', 'ejs')
+
+// middleware
+app.use(express.static('public'));
+
+
+
 
 const port = 3000;
 
@@ -9,33 +20,28 @@ app.listen(port, () => {
 })     
 
 
-const mw1 = (req, res, next) => {
-    console.log('Middleware 1');
-    next();
-}
-app.use(express.static('public'));
-app.use(mw1);
 
 
 
+// routes
 app.get('/' , (req, res) => {
 
-        res.sendFile(path.resolve(__dirname, 'temp/index.html'));
-
-
-
-    
-        // console.log('Server is running');
-        // const photo = {
-        //     id: 1,
-        //     title: 'Node.js',   
-        //     descrition: 'Node.js is a runtime environment for JavaScript that runs on the server.',
-        //     url: 'https://nodejs.org/',
-        // }
-
-        // const url = req.url;
-
-        // if(url === "/index" || url === "/") {
-        //     res.send(photo);      
+        res.render('index');
     }
 )
+
+app.get('/about' , (req, res) => {
+
+    res.render('about');
+}
+)
+
+app.get('/addphoto' , (req, res) => {
+
+    res.render('addphoto');
+}
+)
+app.get('/video-page', (req, res) => {
+    res.render('video-page');
+})
+
